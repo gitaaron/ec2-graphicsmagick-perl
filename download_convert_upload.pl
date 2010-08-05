@@ -24,6 +24,6 @@ my $bucketname = 'assets.sodalabs.com'; # @TODO change sodalabs to your domain
 my $bucket = $s3->add_bucket( { bucket => $bucketname } );
 
 # fetch file from the bucket
-$response = $bucket->get_key_filename('assets/rooster.jpg', 'GET', 'assets/new_rooster.jpg')
+my $response = $bucket->get_key_filename('assets/rooster.jpg', 'GET', 'assets/new_rooster.jpg')
     or die $s3->err . ": " . $s3->errstr;
 

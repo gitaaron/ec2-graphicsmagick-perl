@@ -8,7 +8,11 @@ sub trim($);
 sub parseLine($);
 
 sub getS3Keys {
-    open (FILE, $ENV{HOME} . '/.boto');
+    my $file = $ENV{HOME} . '/.boto';
+    unless (-e $file) {
+        die "Error: Can not find your s3 credentials.  Place them in ~/.boto. See README for format.\n";
+    }
+    open (FILE, $file);
     my $offset = 0;
 
     (my $aws_access_key_id, my $aws_secret_access_key);
