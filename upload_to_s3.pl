@@ -19,10 +19,7 @@ my $s3 = Net::Amazon::S3->new(
     }
 );
 
-
-# a bucket is a globally-unique directory
-my $bucketname = 'assets.sodalabs.com'; # @TODO change this with your domain
-
+my $bucketname = 'assets.sodalabs.com'; # @TODO change sodalabs to your domain
 
 my $response = $s3->buckets;
 foreach my $bucket ( @{ $response->{buckets} } ) {
